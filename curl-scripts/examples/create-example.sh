@@ -10,5 +10,5 @@ curl "http://localhost:4741/examples" \
       "text": "'"${TEXT}"'"
     }
   }'
-
+# change text to the columns that you wish to use in your table
 echo
