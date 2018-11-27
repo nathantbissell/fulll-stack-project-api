@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :shoes, except: %i[new edit]
   resources :customers, except: %i[new edit]
   resources :customers, except: %i[new edit]
   resources :customers, except: %i[new edit]

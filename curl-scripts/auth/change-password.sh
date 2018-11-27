@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/change-password" \
+curl "https://fast-garden-25657.herokuapp.com/change-password" \
   --include \
   --request PATCH \
   --header "Authorization: Token token=${TOKEN}" \
