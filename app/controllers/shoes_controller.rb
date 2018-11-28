@@ -1,4 +1,4 @@
-class ShoesController < ApplicationController
+class ShoesController < OpenReadController
   before_action :set_shoe, only: [:show, :update, :destroy]
 
   # GET /shoes
@@ -15,6 +15,9 @@ class ShoesController < ApplicationController
 
   # POST /shoes
   def create
+    #binding.pry
+    #current_user
+    #shoe_params
     @shoe = Shoe.new(shoe_params)
 
     if @shoe.save
@@ -42,6 +45,7 @@ class ShoesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shoe
       @shoe = Shoe.find(params[:id])
+      # current user as opposed to anyone else by find method
     end
 
     # Only allow a trusted parameter "white list" through.

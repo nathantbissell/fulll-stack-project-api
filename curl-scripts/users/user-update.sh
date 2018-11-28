@@ -7,7 +7,10 @@ curl "http://localhost:4741/users/${ID}" \
   --header "Content-Type: application/json" \
   --data '{
     "user": {
-      "email": "'"${EMAIL}"'"
+      "email": "'"${EMAIL}"'",
+      "size": "'"${SIZE}"'",
+      "fav_brand": "'"${FAV_BRAND}"'",
+      "fav_color": "'"${FAV_COLOR}"'"
     }
   }'
 
