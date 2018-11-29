@@ -2,4 +2,5 @@
 
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :size, :fav_brand, :fav_color
+  has_many :shoes
 end

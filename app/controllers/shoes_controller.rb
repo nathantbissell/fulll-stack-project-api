@@ -1,5 +1,5 @@
 class ShoesController < OpenReadController
-  before_action :set_shoe, only: [:show, :update, :destroy]
+  before_action :set_shoe, only: [:update, :destroy]
 
   # GET /shoes
   def index
@@ -10,15 +10,15 @@ class ShoesController < OpenReadController
 
   # GET /shoes/1
   def show
-    render json: @shoe
+    render json: Shoe.find(params[:id])
   end
 
   # POST /shoes
   def create
-    #binding.pry
     #current_user
     #shoe_params
-    @shoe = Shoe.new(shoe_params)
+    # @shoe = Shoe.new(shoe_params)
+    @shoe = current_user.shoes.build(shoe_params)
 
     if @shoe.save
       render json: @shoe, status: :created, location: @shoe
@@ -44,7 +44,9 @@ class ShoesController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shoe
-      @shoe = Shoe.find(params[:id])
+      # @shoe = Shoe.find(params[:id])
+      @shoe = current_user.shoes.find(params[:id])
+      # use current_user variable???
       # current user as opposed to anyone else by find method
     end
 
