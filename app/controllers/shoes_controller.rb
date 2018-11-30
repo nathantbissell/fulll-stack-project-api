@@ -18,8 +18,9 @@ class ShoesController < OpenReadController
     #current_user
     #shoe_params
     # @shoe = Shoe.new(shoe_params)
+    binding.pry
     @shoe = current_user.shoes.build(shoe_params)
-
+    binding.pry
     if @shoe.save
       render json: @shoe, status: :created, location: @shoe
     else
