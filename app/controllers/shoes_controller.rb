@@ -1,5 +1,5 @@
 class ShoesController < OpenReadController
-  before_action :set_shoe, only: [:update, :destroy]
+  before_action :set_shoe, only: %i[update destroy]
 
   # GET /shoes
   def index
@@ -18,11 +18,9 @@ class ShoesController < OpenReadController
     #current_user
     #shoe_params
     # @shoe = Shoe.new(shoe_params)
-    binding.pry
     @shoe = current_user.shoes.build(shoe_params)
-    binding.pry
     if @shoe.save
-      render json: @shoe, status: :created, location: @shoe
+        render json: @shoe, status: :created, location: @shoe
     else
       render json: @shoe.errors, status: :unprocessable_entity
     end
@@ -53,6 +51,6 @@ class ShoesController < OpenReadController
 
     # Only allow a trusted parameter "white list" through.
     def shoe_params
-      params.require(:shoe).permit(:brand, :model, :size, :color)
+      params.require(:shoe).permit(:id, :brand, :model, :size, :color)
     end
 end

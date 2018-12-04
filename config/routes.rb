@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   #users
   # get '/users' => 'users#index'
   #
-  # #shoes
-  # get '/shoes' => 'shoes#index'
+  # #shoes vCustom Routes
+  get '/shoes' => 'shoes#index'
+  get '/shoes/:id' => 'shoes#show'
+  post '/shoes' => 'shoes#create'
+  patch '/shoes/:id' => 'shoes#update'
 
 end
